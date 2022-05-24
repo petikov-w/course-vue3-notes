@@ -1,17 +1,21 @@
 <template lang="pug">
-//h1.article-title {{ content.article01.title }}
-//p {{ content.article01.text }}
+.md-body
+  Form
 </template>
 
 <script>
-// import {contentHome} from "@/_config";
+import {ref} from "vue";
+import Form from "@/components/notes/Form";
+
 export default {
   name: "HomePage",
-  // data() {
-  //   return {
-  //     content: contentHome
-  //   }
-  // },
+  components: {Form},
+  setup() {
+    const title = ref('Привет');
+
+
+    return { title}
+  }
 
 }
 </script>
