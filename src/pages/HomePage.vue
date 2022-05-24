@@ -1,6 +1,6 @@
 <template lang="pug">
 .md-body
-  Form
+  Form(@onSubmit="handleSubmit()")
 </template>
 
 <script>
@@ -12,9 +12,9 @@ export default {
   components: {Form},
   setup() {
     const title = ref('Привет');
+    const handleSubmit = (note) => { console.log(note)};
 
-
-    return { title}
+    return {title, handleSubmit}
   }
 
 }
