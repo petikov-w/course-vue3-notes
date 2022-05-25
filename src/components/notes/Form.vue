@@ -1,11 +1,12 @@
 <template lang="pug">
 .note-form__wrapper
+  //h1 123
   form(class="note-form" @submit.prevent="onSubmit")
     textarea(
       required
       v-model="input_value"
       placeholder="Введите заметку")
-    button(class="btn btn-primary" type="submit") Добавить заметку
+    button(class="btn btn-primary btnm" type="submit") Добавить заметку
 
 </template>
 
@@ -14,12 +15,11 @@ import {ref} from "vue";
 
 export default {
   name: "vForm",
-  setup()  {
+  setup(_, {emit})  {
     let input_value = ref('');
     const onSubmit = () => {
-      this.$emit("onSubmit",input_value.value)
-      input_value.value = "";
-      console.log(input_value.value)};
+      emit("onSubmit",input_value.value)
+      input_value.value = "";}
 
     return {
       input_value,
@@ -40,5 +40,9 @@ export default {
     max-width: 600px;
     width: 100%;
   }
+.btnm {
+  background-color: #494ce8!important;
+  color: #ffffff!important;
+}
 }
 </style>
